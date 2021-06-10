@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import EditItem from './EditItem';
 
 export default function Item(props) {
 
-    const { removeItem, toggleActive, item } = props
-
+    const { id, removeItem, toggleActive, editItem, item, handleNameChange, handleImageChange, handlePriceChange, onSubmitChange } = props
 
     const [ isEditing, setIsEditing ] = useState(false);
     const toggle = () => {
@@ -34,9 +34,7 @@ export default function Item(props) {
                     (
                     <>
                     <span>Editing</span>
-                    <button onClick={() => toggle()}><i className="far fa-save"></i></button>
-                    <button onClick={() => removeItem(item.id)}><i className="far fa-window-close"></i></button>
-                    <button onClick={() => removeItem(item.id)}><i className="far fa-trash-alt"></i></button>
+                        <EditItem item={item} id={id} removeItem={removeItem} editItem={editItem} isEditing={isEditing} toggle={toggle} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></EditItem>
                     </>
                     )
                     }

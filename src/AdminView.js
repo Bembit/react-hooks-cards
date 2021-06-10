@@ -11,8 +11,8 @@ export default function AdminView() {
 
 	const [ items, setItems ] = useState(placeHolders);
 
-	console.table(placeHolders);
-    console.table(items);
+	// console.table(placeHolders);
+    // console.table(items);
 
     const [ name, setName ] = useState("");
     const handleNameChange = event => {
@@ -55,8 +55,14 @@ export default function AdminView() {
     };
 
 
-    const editItem = editId => {
-        const updatedItems = items.filter((item) => item.id !== editId);
+    const editItem = (editId, newName = name, newPrice = price, newImage = image) => {
+        const updatedItems = items.map((item) => 
+            item.id === editId ? { ...item, name: newName, price: Number(newPrice), image: baseUrl + newImage } : item
+        );
+
+        console.table(updatedItems)
+
+        setItems(updatedItems);
     }
 
     const toggleActive = activeId => {
@@ -71,7 +77,7 @@ export default function AdminView() {
             <Nav items={items}></Nav>
             <div className="app">
                 <AdminForm name={name} price={price} image={image} addNewItem={addNewItem} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminForm>
-                <AdminList items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
+                <AdminList items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminList>
             </div>
         </>
     );

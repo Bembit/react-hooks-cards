@@ -7,16 +7,8 @@ export default function Nav(props) {
         
             <h3>react hooks</h3>
             <div>
-            {/* <a href="#/">Cart
-                
-                {countCart.length !== 0 ? (
-                <span>{totalQty}</span>
-                ) : (
-                    <span>0</span>
-                )}
-            
-            </a> */}
-            <a href="#/">ITEMS
+
+            <a href="#/">TOTAL
                 <span>{props.items.length}</span>
             </a>
             
