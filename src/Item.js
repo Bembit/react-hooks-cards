@@ -3,7 +3,7 @@ import EditItem from './EditItem';
 
 export default function Item(props) {
 
-    const { id, removeItem, toggleActive, editItem, item, handleNameChange, handleImageChange, handlePriceChange, onSubmitChange } = props
+    const { id, removeItem, toggleActive, editItem, item } = props
 
     const [ isEditing, setIsEditing ] = useState(false);
     const toggle = () => {
@@ -33,8 +33,7 @@ export default function Item(props) {
 
                     (
                     <>
-                    <span>Editing</span>
-                        <EditItem item={item} id={id} removeItem={removeItem} editItem={editItem} isEditing={isEditing} toggle={toggle} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></EditItem>
+                        <EditItem item={item} id={id} removeItem={removeItem} editItem={editItem} isEditing={isEditing} toggle={toggle}></EditItem>
                     </>
                     )
                     }

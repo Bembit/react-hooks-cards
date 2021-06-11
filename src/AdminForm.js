@@ -19,13 +19,13 @@ export default function AdminForm(props) {
                         props.onSubmitChange();
                     }}>
                         <h3>this is: {props.name}</h3>
-                        <input required value={props.name} type="text" onChange={props.handleNameChange}></input>
+                        <input required value={props.name} type="text" onChange={props.handleNameChange} placeholder={props.name}></input>
 
                         <h3>this is: {props.price}</h3>
-                        <input required value={props.price} type="text" onChange={props.handlePriceChange}></input>
+                        <input required value={props.price} type="text" onChange={props.handlePriceChange} placeholder={props.price}></input>
 
                         <h3>this is: {props.image}</h3>
-                        <input required value={props.image} type="text" onChange={props.handleImageChange}></input>
+                        <input required value={props.image} type="text" onChange={props.handleImageChange} placeholder={props.image}></input>
 
                         <button>Submit</button>
                     </form>

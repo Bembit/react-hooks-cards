@@ -9,6 +9,8 @@ export default function AdminView() {
 
 	const placeHolders = data.users;
 
+    // refactor and add filters object keys and custom modal
+
 	const [ items, setItems ] = useState(placeHolders);
 
 	// console.table(placeHolders);
@@ -77,7 +79,7 @@ export default function AdminView() {
             <Nav items={items}></Nav>
             <div className="app">
                 <AdminForm name={name} price={price} image={image} addNewItem={addNewItem} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminForm>
-                <AdminList items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminList>
+                <AdminList items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
             </div>
         </>
     );
