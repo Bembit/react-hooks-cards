@@ -6,14 +6,16 @@ export default function AdminList(props) {
     const { removeItem, editItem, toggleActive, isEditing, handleToggle } = props
 
     return (
-        <div className="cart">
-
+        <div className="list-wrapper">
+        <div className="list">
+            
                 {props.items.map((item) => (
                     
                     <Item key={item.id} id={item.id} item={item} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive} isEditing={isEditing} handleToggle={handleToggle}/>
 
                 ))}
            
+        </div>
         </div>
 )}
 

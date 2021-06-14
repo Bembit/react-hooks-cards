@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 export default function AdminForm(props) {
 
@@ -7,33 +7,36 @@ export default function AdminForm(props) {
         setIsVisible(!isVisible);
     }
 
+
     return (
         <>  
             {isVisible ?
                 <>
-                <button onClick={() => setIsVisible(toggle)}><i className="far fa-minus-square"></i></button> 
-                <div>
+                <button className="additem" onClick={() => setIsVisible(toggle)}><i className="far fa-minus-square"></i></button> 
+                <div className="form-container">
                     <form className="form" onSubmit={(e) => {
                         e.preventDefault();
                         props.addNewItem(props.name, props.price, props.image);
                         props.onSubmitChange();
+                        toggle();
                     }}>
-                        <h3>this is: {props.name}</h3>
+                        <h3>title: {props.name}</h3>
                         <input required value={props.name} type="text" onChange={props.handleNameChange} placeholder={props.name}></input>
 
-                        <h3>this is: {props.price}</h3>
+                        <h3>price: {props.price}</h3>
                         <input required value={props.price} type="text" onChange={props.handlePriceChange} placeholder={props.price}></input>
 
-                        <h3>this is: {props.image}</h3>
+                        <h3>image: {props.image}</h3>
                         <input required value={props.image} type="text" onChange={props.handleImageChange} placeholder={props.image}></input>
 
-                        <button>Submit</button>
+
+                        <button className="submit">Submit</button>
                     </form>
                </div>
                </>
             :
             <>
-            <button onClick={() => setIsVisible(toggle)}><i className="far fa-plus-square"></i></button>
+            <button className="additem" onClick={() => setIsVisible(toggle)}>add item</button>
             <div></div>
             </>
             }

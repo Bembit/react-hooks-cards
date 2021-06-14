@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import Nav from './Nav';
+import Footer from './Footer';
 import AdminForm from './AdminForm';
 import AdminList from './AdminList';
-
 import data from './data';
 
 export default function AdminView() {
 
+// data    
 	const placeHolders = data.users;
-
-    // refactor and add filters object keys and custom modal
-
 	const [ items, setItems ] = useState(placeHolders);
 
-	// console.table(placeHolders);
-    // console.table(items);
+	console.table(placeHolders);
+    console.table(items);
 
+
+// handlers
     const [ name, setName ] = useState("");
     const handleNameChange = event => {
         setName(event.target.value);
@@ -37,7 +37,7 @@ export default function AdminView() {
         setImage("");
     };
 
-    const baseUrl = "https://source.unsplash.com/100x50/?"
+    const baseUrl = "https://source.unsplash.com/600x400/?"
 
     // stackoverflow 1337 developer - your code is now my property 
     function uuidv4() {
@@ -61,9 +61,7 @@ export default function AdminView() {
         const updatedItems = items.map((item) => 
             item.id === editId ? { ...item, name: newName, price: Number(newPrice), image: baseUrl + newImage } : item
         );
-
         console.table(updatedItems)
-
         setItems(updatedItems);
     }
 
@@ -74,13 +72,18 @@ export default function AdminView() {
         setItems(updatedItems);
     }
 
+    // second edit form to trigger the hook as test with modal? refactor and add filters object keys and custom modal
+    // search bar
+
     return (
         <>
             <Nav items={items}></Nav>
             <div className="app">
                 <AdminForm name={name} price={price} image={image} addNewItem={addNewItem} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminForm>
+                {/* <div>search</div> */}
                 <AdminList items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
             </div>
+            <Footer/>
         </>
     );
 };

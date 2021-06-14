@@ -52,23 +52,65 @@ const data = {
   users: [
     {
       id: '1',
-      name: 'Pizza',
+      name: 'Girl',
       price: 25,
-      image: 'https://source.unsplash.com/600x400/?food',
+      image: 'https://source.unsplash.com/600x400/?girl',
       isAvailable: true
     },
     {
       id: '2',
       name: 'Pizza',
       price: 25,
-      image: 'https://source.unsplash.com/600x400/?foods',
+      image: 'https://source.unsplash.com/600x400/?pizza',
       isAvailable: true
     },
     {
       id: '3',
-      name: 'Pizza',
+      name: 'Corporate',
       price: 25,
-      image: 'https://source.unsplash.com/600x400/?meal',
+      image: 'https://source.unsplash.com/600x400/?corporate',
+      isAvailable: true
+    },
+    {
+      id: '4',
+      name: 'Metro',
+      price: 25,
+      image: 'https://source.unsplash.com/600x400/?Metro',
+      isAvailable: true
+    },
+    {
+      id: '5',
+      name: 'person',
+      price: 25,
+      image: 'https://source.unsplash.com/600x400/?person',
+      isAvailable: true
+    },
+    {
+      id: '6',
+      name: 'sport',
+      price: 25,
+      image: 'https://source.unsplash.com/600x400/?sport',
+      isAvailable: true
+    },
+    {
+      id: '7',
+      name: 'tennis',
+      price: 25,
+      image: 'https://source.unsplash.com/600x400/?tennis',
+      isAvailable: true
+    },
+    {
+      id: '8',
+      name: 'skyscraper',
+      price: 25,
+      image: 'https://source.unsplash.com/600x400/?skyscraper',
+      isAvailable: true
+    },
+    {
+      id: '9',
+      name: 'food',
+      price: 25,
+      image: 'https://source.unsplash.com/600x400/?food',
       isAvailable: true
     }
   ]

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import EditItem from './EditItem';
+import Modal from './Modal';
 
 export default function Item(props) {
 
     const { id, removeItem, toggleActive, editItem, item } = props
+    
+    const [show, setShow] = useState(false);
 
     const [ isEditing, setIsEditing ] = useState(false);
     const toggle = () => {
@@ -11,7 +14,7 @@ export default function Item(props) {
     }
 
     return (
-            <div className="cartitem" key={item.id}>
+            <div className="listitem" key={item.id}>
 
                     {!isEditing
 
@@ -19,13 +22,24 @@ export default function Item(props) {
 
                     (
                     <> 
-                        {item.name}
-                        <img src={item.image} alt={item.name}></img>
+                        <div className="imagecontainer" style={{backgroundImage: `url(${item.image})`}}></div>
+                        <h3>{item.name}</h3>
+                        <span>{item.price}</span>
+                        <hr></hr>
+                        <div className="listitem-buttons">
                         <button onClick={() => toggle()}><i className="far fa-edit"></i></button>
                         <button onClick={() => removeItem(item.id)}><i className="far fa-trash-alt"></i></button>
                         
+                        <button onClick={() => setShow(true)}><i class="far fa-comment"></i></button>
+                
+                        <Modal item={item} onClose={() => setShow(false)} show={show}/>
+
+                        </div>
+                        <hr></hr>
+                        <div className="check">
                         <input type="checkbox" checked={item.isAvailable} onChange={() => toggleActive(item.id)}></input>
                         {item.isAvailable ? <span>in stock</span> : <span>currently unavailable</span> }
+                        </div>
                     </>
                     )
 
