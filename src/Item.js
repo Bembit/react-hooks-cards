@@ -31,7 +31,7 @@ export default function Item(props) {
                         
                         <button onClick={() => setShow(true)}><i className="far fa-comment"></i></button>
                 
-                        <Modal item={item} onClose={() => setShow(false)} show={show}/>
+                        <Modal toggleActive={toggleActive} item={item} onClose={() => setShow(false)} show={show}/>
 
                         </div>
                         <div className="check">

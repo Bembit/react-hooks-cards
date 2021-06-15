@@ -134,15 +134,15 @@ h3 {
 .nav a:first-of-type {
     margin-right: 55px;
     color: var(--red);
-    border-top: 5px solid var(--red);
-    border-bottom: 5px solid var(--red);
+    /* border-top: 5px solid var(--red); */
+    /* border-bottom: 5px solid var(--red); */
 }
 
 .nav a:last-of-type {
     margin-right: 350px;
+    /* border-top: 5px solid var(--subtle-yellow); */
+    /* border-bottom: 5px solid var(--subtle-yellow); */
     color: var(--subtle-yellow);
-    border-top: 5px solid var(--subtle-yellow);
-    border-bottom: 5px solid var(--subtle-yellow);
 }
 
 /* forms */
@@ -260,6 +260,8 @@ button:hover {
     border-radius: 15px;
 }
 
+/* grid reverse pls ? :( or makit magic rendering? */
+
 .list {
     border-radius: 15px;
     padding: 15px 15px;
@@ -373,7 +375,7 @@ button:hover {
     border-radius: 4px;
     outline: none;
     transition-duration: 0.3s;
-    background-color: var(--red);
+    background-color: var(--subtle-yellow);
     cursor: pointer;
   }
 
@@ -384,7 +386,7 @@ label {
 }
 
 .checkbox > input:checked {
-    background-color: var(--subtle-yellow);
+    background-color: var(--green);
 
 }
 
@@ -401,6 +403,12 @@ label {
 
 /* modal */
 
+h4 {
+    font-size: 1rem;
+    margin-left: 15px;
+    margin: 0;
+}
+
 .modal {
     position: fixed;
     left: 0;
@@ -416,22 +424,61 @@ label {
 }
 
 .modal-content {
-    width: 800px;
+    width: 900px;
     background-color: #fff;
+    border-radius: 25px;
+    position: relative;
+    background-color: var(--red);
+    border: 5px solid var(--red)
+}
+
+.modal-image {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 .modal-header .modal-footer {
+    margin: 0;
+}
+
+.modal-footer{
     padding: 15px;
 }
 
 .modal-title {
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-body {
-    padding: 10px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    margin: 0;
+    max-height: 350px;
+    padding: 15px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 15px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal button {
+    height: 50px;
+    width: 50px;
+    background-color: rgba(0,0,0,0.15);
+    border-radius: 50%;
+} 
+
+.modal-close i {
+    font-size: 3rem;
+    color: var(--red);
+
 }
 
 /* footer */
