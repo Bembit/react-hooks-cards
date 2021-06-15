@@ -53,7 +53,7 @@ const data = {
     {
       id: '1',
       name: 'Girl',
-      price: 25,
+      price: 99,
       image: 'https://source.unsplash.com/600x400/?girl',
       isAvailable: true
     },
@@ -67,49 +67,49 @@ const data = {
     {
       id: '3',
       name: 'Corporate',
-      price: 25,
+      price: 14,
       image: 'https://source.unsplash.com/600x400/?corporate',
       isAvailable: true
     },
     {
       id: '4',
       name: 'Metro',
-      price: 25,
+      price: 66,
       image: 'https://source.unsplash.com/600x400/?Metro',
       isAvailable: true
     },
     {
       id: '5',
       name: 'person',
-      price: 25,
+      price: 139,
       image: 'https://source.unsplash.com/600x400/?person',
       isAvailable: true
     },
     {
       id: '6',
       name: 'sport',
-      price: 25,
+      price: 11,
       image: 'https://source.unsplash.com/600x400/?sport',
       isAvailable: true
     },
     {
       id: '7',
       name: 'tennis',
-      price: 25,
+      price: 76,
       image: 'https://source.unsplash.com/600x400/?tennis',
       isAvailable: true
     },
     {
       id: '8',
       name: 'skyscraper',
-      price: 25,
+      price: 404,
       image: 'https://source.unsplash.com/600x400/?skyscraper',
       isAvailable: true
     },
     {
       id: '9',
       name: 'food',
-      price: 25,
+      price: 55,
       image: 'https://source.unsplash.com/600x400/?food',
       isAvailable: true
     }

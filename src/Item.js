@@ -23,22 +23,22 @@ export default function Item(props) {
                     (
                     <> 
                         <div className="imagecontainer" style={{backgroundImage: `url(${item.image})`}}></div>
-                        <h3>{item.name}</h3>
-                        <span>{item.price}</span>
-                        <hr></hr>
+                        <h3 className="list-title">{item.name}</h3>
+                        <div className="price">$ {item.price}</div>
                         <div className="listitem-buttons">
                         <button onClick={() => toggle()}><i className="far fa-edit"></i></button>
                         <button onClick={() => removeItem(item.id)}><i className="far fa-trash-alt"></i></button>
                         
-                        <button onClick={() => setShow(true)}><i class="far fa-comment"></i></button>
+                        <button onClick={() => setShow(true)}><i className="far fa-comment"></i></button>
                 
                         <Modal item={item} onClose={() => setShow(false)} show={show}/>
 
                         </div>
-                        <hr></hr>
                         <div className="check">
+                        <label className="checkbox">
                         <input type="checkbox" checked={item.isAvailable} onChange={() => toggleActive(item.id)}></input>
                         {item.isAvailable ? <span>in stock</span> : <span>currently unavailable</span> }
+                        </label>
                         </div>
                     </>
                     )

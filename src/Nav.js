@@ -8,19 +8,19 @@ export default function Nav(props) {
 
     return (
         <div className="nav">
-        
-            <h3>react hooks</h3>
-            <div>
-            
-            <a href="#/">TOTAL
-                <span>{props.items.length}</span>
-            </a>
-            <a href="#/">OUTOFSTOCK
 
-                - {isAvailable}
+            <div className="nav-left">
+                <h3>react hooks</h3>
+                <input value={props.query} onChange={props.handleQueryChange} type="text" placeholder="Search..."></input>
+            </div>
 
-            </a>
-            
+            <div className="nav-right">
+                <a href="#/">TOTAL
+                    <span className="span-1">{items.length}</span>
+                </a>
+                <a href="#/">OUTOFSTOCK
+                    <span className="span-2">{isAvailable}</span>
+                </a>
             </div>
 
         </div>

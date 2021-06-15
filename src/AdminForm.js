@@ -14,7 +14,7 @@ export default function AdminForm(props) {
                 <>
                 <button className="additem" onClick={() => setIsVisible(toggle)}><i className="far fa-minus-square"></i></button> 
                 <div className="form-container">
-                    <form className="form" onSubmit={(e) => {
+                    <form className="form main-form" onSubmit={(e) => {
                         e.preventDefault();
                         props.addNewItem(props.name, props.price, props.image);
                         props.onSubmitChange();

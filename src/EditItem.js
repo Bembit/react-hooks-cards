@@ -12,28 +12,28 @@ export default function EditItem(props) {
     });
     
     return (
-        <div>
+        <div className="edit-form">
                 <form className="form" onSubmit={(e) => {
                             e.preventDefault();
                             editItem(id, fields.name, fields.price, fields.image);
                             reset();
                             toggle(isEditing);
-                        }}>
-                            <h3>this is: {item.name}</h3>
-                            <h3>this is: {item.id}</h3>
+                        }}> 
+                            <h3>Name</h3>
                             <input id="name" value={fields.name} type="text" onChange={handleFieldChange} placeholder={item.name}></input>
 
-                            <h3>this is: {item.price}</h3>
+                            <h3>Price</h3>
                             <input id="price" value={fields.price} type="text" onChange={handleFieldChange} placeholder={item.price}></input>
 
-                            <h3>this is: {item.image}</h3>
+                            <h3>Image</h3>
                             <input id="image" value={fields.image} type="text" onChange={handleFieldChange} placeholder={item.image}></input>
-                            <button><i className="far fa-save"></i></button>
+                            <button className="edit">Save</button>
                 </form>
 
-                <button onClick={() => toggle(isEditing)}><i className="far fa-window-close"></i></button>
-                <button onClick={() => removeItem(item.id)}><i className="far fa-trash-alt"></i></button>
-
+                <div className="listitem-buttons">
+                    <button onClick={() => toggle(isEditing)}><i className="far fa-window-close"></i></button>
+                    <button onClick={() => removeItem(item.id)}><i className="far fa-trash-alt"></i></button>
+                </div>
         </div>
     )
 

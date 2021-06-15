@@ -39,7 +39,6 @@ export default function AdminView() {
 
     const baseUrl = "https://source.unsplash.com/600x400/?"
 
-    // stackoverflow 1337 developer - your code is now my property 
     function uuidv4() {
         console.log("generating uuid")
         return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
@@ -56,7 +55,6 @@ export default function AdminView() {
         setItems(updatedItems);
     };
 
-
     const editItem = (editId, newName = name, newPrice = price, newImage = image) => {
         const updatedItems = items.map((item) => 
             item.id === editId ? { ...item, name: newName, price: Number(newPrice), image: baseUrl + newImage } : item
@@ -72,16 +70,34 @@ export default function AdminView() {
         setItems(updatedItems);
     }
 
+    const [query, setQuery ] = useState("")
+    const handleQueryChange = event => {
+        setQuery(event.target.value);
+    };
+    // console.log(query)
+
+    let showingResults = items.filter(function(item) {
+        const nameMatch = item.name.toLowerCase().includes(query.toLowerCase());
+        // console.log(nameMatch)
+        
+        const priceMatch = item.price.toString().includes(query);
+        // console.log(priceMatch)
+
+        const imageMatch = item.image.toLowerCase().includes(query.toLowerCase());
+        // console.log(imageMatch)
+        
+        return nameMatch || priceMatch || imageMatch
+    })
+
     // second edit form to trigger the hook as test with modal? refactor and add filters object keys and custom modal
-    // search bar
 
     return (
         <>
-            <Nav items={items}></Nav>
+            <Nav handleQueryChange={handleQueryChange} query={query} items={items}></Nav>
             <div className="app">
                 <AdminForm name={name} price={price} image={image} addNewItem={addNewItem} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminForm>
                 {/* <div>search</div> */}
-                <AdminList items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
+                <AdminList query={query} showingResults={showingResults} items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
             </div>
             <Footer/>
         </>
