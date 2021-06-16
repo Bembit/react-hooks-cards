@@ -19,6 +19,7 @@ export default function EditItem(props) {
                             reset();
                             toggle(isEditing);
                         }}> 
+                            <h3>{item.id}</h3>
                             <h3>Name</h3>
                             <input id="name" value={fields.name} type="text" onChange={handleFieldChange} placeholder={item.name}></input>
 

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 export default function AdminForm(props) {
 
+// form toggler
     const [ isVisible, setIsVisible ] = useState(false);
     const toggle = () => {
         setIsVisible(!isVisible);
     }
-
 
     return (
         <>  
@@ -28,7 +28,6 @@ export default function AdminForm(props) {
 
                         <h3>image: {props.image}</h3>
                         <input required value={props.image} type="text" onChange={props.handleImageChange} placeholder={props.image}></input>
-
 
                         <button className="submit">Submit</button>
                     </form>

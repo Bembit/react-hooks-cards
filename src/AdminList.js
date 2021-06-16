@@ -3,7 +3,7 @@ import Item from './Item';
 
 export default function AdminList(props) {
 
-    const { removeItem, editItem, toggleActive, isEditing, handleToggle, query, showingResults } = props
+    const { removeItem, editItem, toggleActive, isEditing, handleToggle, query, showingResults, sortedItems } = props
 
     return (
         <div className="list-wrapper">
@@ -11,7 +11,7 @@ export default function AdminList(props) {
             
             {showingResults.length > 0 && query.length >= 2 ? 
             <>
-                {showingResults.map((item) => (
+                {sortedItems.map((item) => (
                     
                     <Item key={item.id} id={item.id} item={item} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive} isEditing={isEditing} handleToggle={handleToggle}/>
 
@@ -19,25 +19,14 @@ export default function AdminList(props) {
             </>
             :
             <>
-                {props.items.map((item) => (
+                {props.sortedItems.map((item) => (
                         
                     <Item key={item.id} id={item.id} item={item} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive} isEditing={isEditing} handleToggle={handleToggle}/>
 
                 ))}
             </>
             }
-
-               
-                
-
-                {/* {props.items.map((item) => (
-                    
-                    <Item key={item.id} id={item.id} item={item} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive} isEditing={isEditing} handleToggle={handleToggle}/>
-
-                ))} */}
            
         </div>
         </div>
 )}
-
-// name={item.name} price={item.price} image={item.image}

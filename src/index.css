@@ -90,6 +90,20 @@ h3 {
     font-weight: 900;
 }
 
+#search {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.reset {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 75px;
+    margin-right: 25px;
+    outline: none;
+    border: none;
+}
+
 .nav .nav-right {
     display: flex;
     justify-content: space-between;
@@ -99,6 +113,10 @@ h3 {
 .nav .nav-left {
     display: flex;
     flex: 4;
+}
+
+.nav .nav-left div {
+    display: flex;
 }
 
 .nav .span-1 {
@@ -125,6 +143,13 @@ h3 {
     height: 20px;
 }
 
+.nav select {
+    margin-left: 15px;
+    border-radius: 15px;
+    text-indent: 5px;
+    width: 75px;
+}
+
 .nav a {
     font-weight: 700;
     position: relative;
@@ -140,9 +165,9 @@ h3 {
 
 .nav a:last-of-type {
     margin-right: 350px;
+    color: var(--subtle-yellow);
     /* border-top: 5px solid var(--subtle-yellow); */
     /* border-bottom: 5px solid var(--subtle-yellow); */
-    color: var(--subtle-yellow);
 }
 
 /* forms */
@@ -471,13 +496,12 @@ h4 {
 .modal button {
     height: 50px;
     width: 50px;
-    background-color: rgba(0,0,0,0.15);
     border-radius: 50%;
 } 
 
 .modal-close i {
     font-size: 3rem;
-    color: var(--red);
+    /* color: var(--red); */
 
 }
 

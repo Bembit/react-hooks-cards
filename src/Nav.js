@@ -11,7 +11,16 @@ export default function Nav(props) {
 
             <div className="nav-left">
                 <h3>react hooks</h3>
-                <input value={props.query} onChange={props.handleQueryChange} type="text" placeholder="Search..."></input>
+                <div>
+                    <input id="search" value={props.query} onChange={props.handleQueryChange} type="text" placeholder="Search..."></input>
+                    <button value="" className="reset" onClick={props.handleQueryChange}>reset</button>
+                </div>
+                <h3>sort by</h3>
+                <select onChange={props.handleSortChange}>
+                    <option value="name">Name</option>
+                    <option value="price">Price</option>
+                    <option selected value="id">Id</option>
+                </select>
             </div>
 
             <div className="nav-right">

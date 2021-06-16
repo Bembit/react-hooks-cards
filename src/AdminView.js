@@ -7,13 +7,16 @@ import data from './data';
 
 export default function AdminView() {
 
+    // click anywehere modal close? haha!
+    // theme change
+    // localstorage
+
 // data    
 	const placeHolders = data.users;
 	const [ items, setItems ] = useState(placeHolders);
 
-	console.table(placeHolders);
-    console.table(items);
-
+	// console.table(placeHolders);
+    // console.table(items);
 
 // handlers
     const [ name, setName ] = useState("");
@@ -36,25 +39,25 @@ export default function AdminView() {
         setPrice("");
         setImage("");
     };
-
+// "random" image
     const baseUrl = "https://source.unsplash.com/600x400/?"
-
+// generate a unique uuid
     function uuidv4() {
         console.log("generating uuid")
         return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
             (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
         );
     }
-
+// add new item
     const addNewItem =  () => {
         setItems([ ...items, { id: uuidv4(), name: name, price: Number(price), image: baseUrl + image, isAvailable: true }]);
     };
-
+// delete an item
     const removeItem = removeId => {
         const updatedItems = items.filter((item) => item.id !== removeId);
         setItems(updatedItems);
     };
-
+// edit item
     const editItem = (editId, newName = name, newPrice = price, newImage = image) => {
         const updatedItems = items.map((item) => 
             item.id === editId ? { ...item, name: newName, price: Number(newPrice), image: baseUrl + newImage } : item
@@ -62,20 +65,19 @@ export default function AdminView() {
         console.table(updatedItems)
         setItems(updatedItems);
     }
-
+// toggle in stock, available
     const toggleActive = activeId => {
         const updatedItems = items.map((item) => 
             item.id === activeId ? { ...item, isAvailable: !item.isAvailable } : item
         );
         setItems(updatedItems);
     }
-
+// search
     const [query, setQuery ] = useState("")
     const handleQueryChange = event => {
         setQuery(event.target.value);
     };
-    // console.log(query)
-
+// search filters
     let showingResults = items.filter(function(item) {
         const nameMatch = item.name.toLowerCase().includes(query.toLowerCase());
         // console.log(nameMatch)
@@ -88,16 +90,31 @@ export default function AdminView() {
         
         return nameMatch || priceMatch || imageMatch
     })
+// sorting
 
-    // second edit form to trigger the hook as test with modal? refactor and add filters object keys and custom modal
+    const [ sortedField, setSortedField ] = useState(null);
+    console.log(sortedField)
+    const handleSortChange = event => {
+        setSortedField(event.target.value);
+    };
+
+    let sortedItems = [...showingResults]
+    sortedItems.sort((a, b) => {
+        if (a[sortedField] < b[sortedField]) {
+            return -1;
+        }
+        if (a[sortedField] > b[sortedField]) {
+            return 1;
+        }
+        return 0;
+    }) 
 
     return (
         <>
-            <Nav handleQueryChange={handleQueryChange} query={query} items={items}></Nav>
+            <Nav handleSortChange={handleSortChange} handleQueryChange={handleQueryChange} query={query} items={items}></Nav>
             <div className="app">
                 <AdminForm name={name} price={price} image={image} addNewItem={addNewItem} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminForm>
-                {/* <div>search</div> */}
-                <AdminList query={query} showingResults={showingResults} items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
+                <AdminList sortedItems={sortedItems} query={query} showingResults={showingResults} items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
             </div>
             <Footer/>
         </>
