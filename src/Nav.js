@@ -16,10 +16,10 @@ export default function Nav(props) {
                     <button value="" className="reset" onClick={props.handleQueryChange}>reset</button>
                 </div>
                 <h3>sort by</h3>
-                <select onChange={props.handleSortChange}>
+                <select defaultValue="id" onChange={props.handleSortChange}>
                     <option value="name">Name</option>
                     <option value="price">Price</option>
-                    <option selected value="id">Id</option>
+                    <option value="id">Id</option>
                 </select>
             </div>
 

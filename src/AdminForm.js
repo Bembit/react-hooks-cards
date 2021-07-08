@@ -24,7 +24,7 @@ export default function AdminForm(props) {
                         <input required value={props.name} type="text" onChange={props.handleNameChange} placeholder={props.name}></input>
 
                         <h3>price: {props.price}</h3>
-                        <input required value={props.price} type="text" onChange={props.handlePriceChange} placeholder={props.price}></input>
+                        <input required value={props.price} type="number" onChange={props.handlePriceChange} placeholder={props.price}></input>
 
                         <h3>image: {props.image}</h3>
                         <input required value={props.image} type="text" onChange={props.handleImageChange} placeholder={props.image}></input>

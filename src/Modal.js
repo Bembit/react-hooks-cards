@@ -25,7 +25,7 @@ export default function Modal(props) {
                         {item.isAvailable ? <span>in stock</span> : <span>currently unavailable</span> }
                     </label>
                 </div>
-                    <button className="modal-close" onClick={props.onClose}><i class="far fa-times-circle"></i></button>
+                    <button className="modal-close" onClick={props.onClose}><i className="far fa-times-circle"></i></button>
             </div>
         </div>
     )

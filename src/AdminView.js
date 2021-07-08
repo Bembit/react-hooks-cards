@@ -1,22 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Nav from './Nav';
 import Footer from './Footer';
 import AdminForm from './AdminForm';
 import AdminList from './AdminList';
 import data from './data';
+import Sidenav from './Sidenav';
 
 export default function AdminView() {
 
     // click anywehere modal close? haha!
     // theme change
     // localstorage
+    // alert at delete and edit red and yellow
+    // categories and tags to data with sidebar
+    // basic routing for 2 pages?
+    // bookmarks
 
 // data    
 	const placeHolders = data.users;
-	const [ items, setItems ] = useState(placeHolders);
+    const initialData = JSON.parse(localStorage.getItem('items')) || placeHolders;
+	const [ items, setItems ] = useState(initialData);
 
-	// console.table(placeHolders);
-    // console.table(items);
+    useEffect(() => {
+        localStorage.setItem('items', JSON.stringify(items))
+    }, [items])
+
+	console.table(placeHolders);
+    console.table(items);
 
 // handlers
     const [ name, setName ] = useState("");
@@ -114,7 +124,10 @@ export default function AdminView() {
             <Nav handleSortChange={handleSortChange} handleQueryChange={handleQueryChange} query={query} items={items}></Nav>
             <div className="app">
                 <AdminForm name={name} price={price} image={image} addNewItem={addNewItem} handleNameChange={handleNameChange} handlePriceChange={handlePriceChange} handleImageChange={handleImageChange} onSubmitChange={onSubmitChange}></AdminForm>
+                <div className="main">
+                <Sidenav></Sidenav>
                 <AdminList sortedItems={sortedItems} query={query} showingResults={showingResults} items={items} removeItem={removeItem} editItem={editItem} toggleActive={toggleActive}></AdminList>
+                </div>
             </div>
             <Footer/>
         </>
